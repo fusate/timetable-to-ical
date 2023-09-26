@@ -1,0 +1,14 @@
+{
+  "name": "timetable-to-ical",
+  "version": "0.0.1",
+  "description": "basic server for ical subscriptions to swansea university student timetables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Richards",
+  "license": "ISC",
+  "dependencies": {
+    "ical-generator": "^5.0.1"
+  }
+}

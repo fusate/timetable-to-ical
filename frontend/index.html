@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swansea Timetable iCal Generator</title>
+        <script>
+            function showLink() {
+                let link = new URL(document.getElementById('linkInput').value);
+                newParams = new URLSearchParams();
+                newParams.append('selections', link.searchParams.get('selections'))
+                let newLink = new URL(`http://${window.location.host}/timetables?${newParams}`);
+
+                document.getElementById('linkOutput').innerText = newLink.toString();
+                document.getElementById('timetableLinkSection').hidden = false;
+            }
+            function getFile() {
+
+            }
+        </script>
+    </head>
+    <body>
+        <p>This tool allows you to subscribe to your timetable in any standard web calendar that supports iCal subscriptions.  Use MyTimeTable to find your timetable, and paste the link into the box below.  If your faculty uses the 'log in' button rather than guest, you may prefer to use the built in subscribe button on the top right.</p>
+        <form>
+            <input type="text" id="linkInput" title="MyTimeTable link"><br>
+            <button type="button" onclick="showLink()">Get timetable iCal subscription link</button>
+            <button onclick="getFile()">Get timetable iCal file</button>
+        </form>
+        <div id="timetableLinkSection" hidden="true">
+            <p>Paste this link into your calendar's ical subscription text area.</p>
+            <p id="linkOutput"></p>
+        </div>
+    </body>
+</html>
