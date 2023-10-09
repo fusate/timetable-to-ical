@@ -2,7 +2,6 @@ This is a tool for converting swansea timetable links to an ical format.  see ht
 
 # TO-DO
 
-- fix modules calendars; requesting many calendars at once results in no events being returned
 - https
 - rate limiting
 - host on the wider internet for ical subscriptions
