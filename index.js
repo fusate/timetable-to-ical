@@ -12,17 +12,15 @@ function parseCalJson(json) {
     let events = [];
     let cal = new ical(); // needed for timezone and related calendar data to be correct
 
-    // for (let category of json['CategoryEvents']) {// for every timetable in this json
-        for (let _event of json['Results']) {//for every event in the timetable
-            events.push(new ICalEvent(data={
-                start: _event['StartDateTime'],
-                end: _event['EndDateTime'],
-                summary: _event['Name'],
-                description: json['Name'],
-                location: _event['Location']
-            }, cal));
-        }
-    // }
+    for (let _event of json['Results']) {//for every event in the timetable
+        events.push(new ICalEvent(data={
+            start: _event['StartDateTime'],
+            end: _event['EndDateTime'],
+            summary: _event['Name'],
+            description: json['Name'],
+            location: _event['Location']
+        }, cal));
+    }
     return events;
 }
 
