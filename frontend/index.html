@@ -7,7 +7,7 @@
                 let link = new URL(document.getElementById('linkInput').value);
                 newParams = new URLSearchParams();
                 newParams.append('selections', link.searchParams.get('selections'))
-                let newLink = new URL(`http://${window.location.host}/timetables?${newParams}`);
+                let newLink = new URL(`${window.location.protocol}//${window.location.host}/timetables?${newParams}`);
 
                 document.getElementById('linkOutput').innerText = newLink.toString();
                 document.getElementById('timetableLinkSection').hidden = false;
