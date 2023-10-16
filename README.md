@@ -5,4 +5,5 @@ This is a tool for converting swansea timetable links to an ical format.  see ht
 - https
 - rate limiting
 - host on the wider internet for ical subscriptions
+- add guide for how to add the subscription to calendars
 - directly request data from mytimetable API rather than unofficial one
