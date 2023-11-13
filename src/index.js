@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const { default: ical, ICalEvent } = require('ical-generator');
 
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 const port = 3000;
 
 /* timetable logic */
