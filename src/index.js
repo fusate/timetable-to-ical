@@ -81,7 +81,7 @@ const server = http.createServer((req, res) => {
     const route = new URL(req.protocol + '://' + req.headers.host + req.url);
     if (route.pathname == '/') {
         serveFile(res, './frontend/index.html', 'text/html');
-    } else if (route.pathname == '/timetables') {
+    } else if (route.pathname == '/timetables.ical') {
         timetables(res, route.searchParams);
     } else if (route.pathname == '/style.css') {
         serveFile(res, './frontend/style.css', 'text/css')
@@ -90,6 +90,6 @@ const server = http.createServer((req, res) => {
     }
 })
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 })
