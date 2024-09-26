@@ -37,14 +37,19 @@ function createCal(arr) {
 
 /* params should be a URLSearchParams object */
 async function timetables(response, params) {
-    let selections = params.get('selections').split(',') // array of calendar ['type__category_category']
-    let timetables = await Promise.all(selections.map(async selection => {
-        let type = selection.split('__')[0];
-        let categories = selection.split('__')[1];
-        categories = categories.replace('_', ',');
-        let result = await fetch(`https://timetable.swansea.cymru/${type}/${categories}`);
-        return await result.json();
-    }));
+    let selections = params.get('selections').split(','); // array of calendar ['type__category_category']
+    let timetables = await Promise.all(
+        selections.map(
+            async selection => {
+                let type = selection.split('__')[0];
+                let categories = selection.split('__')[1];
+                categories = categories.replace('_', ','); // the barnapi separates with commas rather than underscores
+                let reqUrl = `https://timetable.swansea.cymru/api/v1/${type}/${categories}`;
+                let result = await fetch(reqUrl);
+                return await result.json();
+            }
+        )
+    );
 
     let unpackedJson = [].concat(...timetables.map(t => t.CategoryEvents));
 
