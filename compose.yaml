@@ -1,8 +1,15 @@
-version: '3.0'
 services:
   app:
     restart: always
-    ports:
-      - 3000:3000
     build:
       context: .
+    environment:
+      VIRTUAL_HOST: "timetable.alxr.uk"
+    expose:
+      - "3000"
+    networks:
+      - rev-proxy-net
+
+networks:
+  rev-proxy-net:
+    external: true
